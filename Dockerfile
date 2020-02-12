@@ -25,6 +25,7 @@ ENV GOLANG_VERSION 1.11.2
 RUN set -eux; \
 	\
 # this "case" statement is generated via "update.sh"
+# url="https://golang.org/dl/go${GOLANG_VERSION}.${goRelArch}.tar.gz"; \
 	dpkgArch="$(dpkg --print-architecture)"; \
 	case "${dpkgArch##*-}" in \
 		amd64) goRelArch='linux-amd64'; goRelSha256='1dfe664fa3d8ad714bbd15a36627992effd150ddabd7523931f077b3926d736d' ;; \
@@ -37,7 +38,7 @@ RUN set -eux; \
 			echo >&2; echo >&2 "warning: current architecture ($dpkgArch) does not have a corresponding Go binary release; will be building from source"; echo >&2 ;; \
 	esac; \
 	\
-	url="https://golang.org/dl/go${GOLANG_VERSION}.${goRelArch}.tar.gz"; \
+  url="https://storage.googleapis.com/golang/go${GOLANG_VERSION}.${goRelArch}.tar.gz"; \
 	wget -O go.tgz "$url"; \
 	echo "${goRelSha256} *go.tgz" | sha256sum -c -; \
 	tar -C /usr/local -xzf go.tgz; \
