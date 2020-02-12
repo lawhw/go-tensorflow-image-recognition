@@ -66,7 +66,7 @@ pipeline {
 				    def CURL_CMD=''
                     def CURL_RESULT=''
                     //TODO：prolist需要修改成对应的项目模块和路径
-					def prolist = ['go-ocr:/']
+					def prolist = ['go-ocr:./']
 					//TODO：SERVER_NAME需要修改成对应的Kuboard的pod值
 			        def SERVER_NAME = "svc-go-ocr"
 			        def KUBOARD_URL = "http://10.13.32.94:32567/k8s-api/apis/apps/v1/namespaces/es-cloud/deployments/${SERVER_NAME}"
