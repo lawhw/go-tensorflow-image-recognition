@@ -44,7 +44,8 @@ pipeline {
 				//dir('./common') {
 				//	sh "${MAVEN_HOME}/bin/mvn  install -Dmaven.test.skip=true"
 				//}
-			   sh "${MAVEN_HOME}/bin/mvn install -Dmaven.test.skip=true"
+         sh "ls -lrt && pwd"
+			   //sh "${MAVEN_HOME}/bin/mvn install -Dmaven.test.skip=true"
 			}
             //steps { sh '${JENKINS_HOME}/consul-template -vault-addr "http://consul.es-jr.cn" -config "jenkins_config.hcl" -once -vault-retry-attempts=1 -vault-renew-token=false' }
         }
